@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>静态成员和实例成员</title>
+</head>
+<body>
+    <script>
+        function Student(name,sex,ago){
+            this.name=name;
+            this.sex=sex;
+            this.ago=ago;
+            this.sing=function(){
+                console.log(this.name+"会唱歌");
+            }
+        }
+        let zrm=new Student('张如明','男',23);
+        let ldh=new Student('刘德华','男',60);
+        console.log(zrm.sing===ldh.sing);   //false
+        // 实例成员：就是构造函数通过this创建的属性和方法，并且只能通过实例化对象访问，不可以通过构造函数访问 
+        zrm.num=160220182;
+        console.log(zrm.num);
+        console.log(Student.num);   //undefined
+        console.log(zrm);
+        //静态成员：在构造函数本身上添加成员，
+        Student.class='6班'
+        //静态成员只能通过构造函数访问
+        console.log(Student.class);
+        console.log(zrm.class);    //undefined
+        console.log(Student);
+    </script>
+</body>
+</html>

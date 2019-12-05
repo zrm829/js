@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+</head>
+<body>
+    <!-- array.filter(function(value,index,arr)); -->
+    <!-- filter方法创建一个新的数组，新的元素数组是通过检查指定数组符合条件的所有元素
+    主要是用于筛选元素,
+    遇到return 不会终止迭代
+    -->
+    <script>
+        let a=[1,2,5,8,2,6,88,4,7];  
+        let b=a.filter(function(value,index,arr){
+            return value>=5;
+        })
+        console.log(b);
+    </script>
+</body>
+</html>

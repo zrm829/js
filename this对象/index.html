@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>margin塌陷问题</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
+            /* margin垂直方向上存在以下问题：
+            外边距合并现象 
+            如果两个div上下排列，给上面div设置margin-bottom，给下面div设置margin-top，那么两个margin会发生合并现象，会取较大的margin值。
+            注意：左右不会发生 外边距合并现象
+            上下塌陷现象 
+            一个大盒子 中包含一个小盒子，给小盒子设置一个margin-top，大盒子会一起向下平移。
+            注意：margin左右没有塌陷现象
+            如果父元素在子元素的margin的同向上有padding或border的话，子元素的margin相对于父元素，否则相对于父元素以外的元素。
+            --------------------- 
+            （1）为父盒子设置border，为外层添加border后父子盒子就不是真正意义上的贴合。
+            （2）为父盒子添加overflow：hidden；
+            （3）为父盒子设定padding值。
+
+            作者：秋天1014童话 
+            来源：CSDN 
+            原文：https://blog.csdn.net/u013217071/article/details/52489281 
+            版权声明：本文为博主原创文章，转载请附上博文链接！ */
+        #hd{
+            width: 700px;
+            height: 500px;
+            border: 1px solid black;
+            position: relative;
+            /* margin: 100px auto; */
+            background: burlywood;
+        }
+        #hd2{
+            width: 500px;
+            height: 300px; 
+            border: 1px solid black;
+            margin: 30px;
+           
+            /* margin-top: 200px; */
+            /* margin-left: 10px;  */
+            background:red;
+        }
+        #hd3{
+            width: 400px;
+            height: 230px;
+            border: 1px;
+            margin:30px;
+            /* margin: 0px auto; */
+            background:yellowgreen;
+        } 
+    </style>
+</head>
+<body>
+    <div id="hd">
+        <div id="hd2">
+            <div id="hd3"></div>
+        </div>
+    </div>
+</body>
+<script>
+    // var hd=(document.getElementsByClassName('hd'))[0];
+    // var hd=document.getElementById('hd');
+    // console.log(hd);
+    // hd.onclick=function(){
+    //   alert('你爱喝');
+    // }
+</script>
+</html>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>margin</title>
+<style type="text/css">
+    .parent{width: 300px;line-height: 1.8; outline: 1px dashed red;border-bottom: 5px solid red;}
+    .sample{height: 150px;background-color: pink;}
+    .sb{width: 300px;height: 150px;background-color: #0ff;}
+    .sample{margin-bottom: 50px;}
+</style>
+</head>
+<body>
+    <div class="parent">
+        <div class="sample">sample</div>
+    </div>
+    <div class="sb">after</div>
+</body>
+</html> -->

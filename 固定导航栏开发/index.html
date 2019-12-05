@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    <style>
+        .Center.f{
+            position:fixed;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div style='width:1000px;height:200px; background: red'></div>
+    <div style='width:1000px;height:100px;background: blue' class="Center"></div>
+    <div style='width:1000px;height:1500px;background: chartreuse'></div>
+</body>
+<script src="./jquery.min.js"></script>
+<script>
+    $(window).scroll(function(){
+        var s=$(document).scrollTop();
+       if(s>200){
+           $(".Center").addClass('f');
+       }
+       else{
+        $(".Center").removeClass('f');
+       }
+    })
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>js成员得查找机制</title>
+</head>
+<body>
+    <!-- 1.当访问对象属性或方法是，先查找对象自身有没此属性
+    2.如果没有就查找他的原型（也就是__proto__指向的原型对象prototype）
+    3.如果还没有就查找原型对象的原型（Object的原型对象）
+    4.依次类推一直到Object为null为止
+    5.如果都有，就近原则 -->
+    <script>
+            function Student(name,sex,ago){
+                this.name=name;
+                this.sex=sex;
+                this.ago=ago;
+            }
+            Student.prototype.sing=function(){
+                console.log(this.name+"会唱歌");
+            }
+            let zrm=new Student('张如明','男',23);
+
+            // zrm.num='160';
+            // Student.prototype.num=170;
+            // Object.prototype.num=180;
+            console.log(zrm.num);
+    </script>
+</body>
+</html>

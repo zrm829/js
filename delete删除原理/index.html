@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>delete</title>
+</head>
+<body>
+    <script>
+        let obj={
+            name:'zrm',
+            age:18
+        }
+        let a=1; 
+
+        // delete 能删除一个对象的属性
+        let b=delete obj.name;
+        console.log(b);    //true
+        console.log(obj.name);    //undefine
+        // 不能删除一个变量
+        let c=delete a;  
+        console.log(c);   //false
+        console.log(a);   //1
+    </script>
+</body>
+</html>

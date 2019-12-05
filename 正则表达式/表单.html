@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+    <form action="">
+        <label for="email">email</label>
+        <input type="text" placeholder="请输入邮箱" id="email"><br>
+        <label for="phone">phone</label>
+        <input type="text" placeholder="请输入电话" id="phone">
+    </form>
+    <script>
+        var email=document.querySelector('#email');
+        var phone=document.querySelector('#phone');
+        var pattern1 = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;  
+        var pattern2=/^1(3|4|5|7|8|9)\d{9}$/
+  
+        email.onblur=function(){
+            var test=pattern1.test(email.value);
+            if(test){
+                alert('邮箱格式正确');
+            }else{
+                alert('邮箱格式不正确');
+            }
+        } 
+
+        phone.onblur=function(){
+            var test=pattern2.test(phone.value);
+            if(test){
+                alert('手机号格式正确');
+            }else{
+                alert('手机号格式不正确');
+            }
+        } 
+    </script>
+</body>
+</html>

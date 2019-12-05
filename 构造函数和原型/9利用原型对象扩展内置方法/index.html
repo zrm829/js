@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>利用原型对象扩展内置方法</title>
+</head>
+<body>
+    <script>
+       let a=[1,2,3,4,5];
+        //    let b=a.splice(2);        //返回数组删除的部分，并且会直接影响原数组
+        //    console.log(a);
+        //    console.log(b);
+        //   let b=a.slice(2,4);   
+        //   console.log(a);          //截取数组，不会影响原数组
+        //   console.log(b);
+      
+       Array.prototype.sum=function(){
+           var sum=0;
+            for(let i=0;i<this.length;i++){
+                sum+=this[i]
+            } 
+            return sum;
+       }
+       console.log(Array.prototype);
+       let c=a.sum()
+       console.log(c);
+    </script>
+</body>
+</html>

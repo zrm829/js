@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>脚本作用域</title>
+</head>
+<body>
+        <!-- 下面我们使用了两个script标签，在第一个标签内部我们声明了严格模式，
+        第二个没有，其结果将会是，严格模式只在第一个标签内部起作用，
+        第二个标签内部的脚本将会以正常模式运行。如果上面的script标签引用了外部的JS文件
+        其结果将会是一致的。需要注意的是在单个脚本中使用严格模式，对文件合并时要特别小心，
+        前一个文件的严格模式会对下一个文件产生不可预期的影响。 -->
+    <script>
+        'use strict';
+        // 1. 变量必须声明后再使用 
+        //  a=1;
+        //  console.log(a);  
+
+        // 2.不允许删除变量或者对象或者函数
+        // let a=1;
+        // let fn={}
+        // function b(){}
+        // delete fn;
+        // delete a;
+        //delete b;
+
+        // 3.不允许变量重名
+        // function fn(p,p){
+        //     console.log(p+p);
+        // }
+        // console.log('strict mode comes into effect.');
+
+        //4.不允许使用八进制
+        // let a=012
+        // console.log(a);
+
+        //5.不能对只读属性赋值
+        // let obj={};
+        // Object.defineProperty(obj,'name',{
+        //     writable:false
+        // });
+        // obj.name='zrm'
+
+        // 6.不允许对一个使用getter方法读取的属性进行赋值
+        // var obj = {get x() {return 0} };
+        // obj.x=25;
+
+        // 7.不允许使用转义字符
+        // var x = \010; 
+
+        // 8.禁止this指向全局对象，在严格模式下this的值为undefined
+        function fn(){
+            console.log(this);
+        }
+        fn();   //输出undefined
+        // 计时器里面的this还是指向全局对象
+        setTimeout(function(){
+            console.log(this);
+        },1000)
+    </script>
+    <script>
+    
+        // let a=2;
+        // delete a;   //false 但不会报错
+        // console.log(a);
+        // function fn(){
+        //     console.log(this);
+        // }
+        // fn();
+    </script>
+</body>
+</html>

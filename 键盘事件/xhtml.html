@@ -1,0 +1,62 @@
+<!-- XHTML 指可扩展超文本标签语言（EXtensible HyperText Markup Language）。
+XHTML 元素必须被正确地嵌套。
+XHTML 元素必须被关闭。
+标签名必须用小写字母。
+XHTML 文档必须拥有根元素。
+空标签也必须使用结束标签，或者其开始标签必须使用/>结尾。
+
+这是错误的：
+
+A break: <br>
+A horizontal rule: <hr>
+An image: <img src="happy.gif" alt="Happy face">
+这是正确的：
+
+A break: <br />
+A horizontal rule: <hr />
+An image: <img src="happy.gif" alt="Happy face" />
+
+
+属性名称必须小写
+属性值必须加引号
+属性不能简写
+用 Id 属性代替 name 属性
+XHTML DTD 定义了强制使用的 HTML 元素
+
+<img src="picture.gif" id="picture1" />
+重要的兼容性提示：
+你应该在 "/" 符号前添加一个额外的空格，以使你的 XHTML 强制使用的 XHTML 元素
+所有 XHTML 文档必须进行文件类型声明（DOCTYPE declaration）。在 XHTML 文档中必须存在html、head、body元素，而 title 元素必须位于在 head 元素中。
+
+下面是一个最小化的 XHTML 文件模板：
+
+<!DOCTYPE Doctype goes here>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Title goes here</title>
+</head>
+
+<body>
+</body>
+
+</html>
+提示：文件类型声明并非 XHTML 文档自身的组成部分。它并不是 XHTML 元素，也没有关闭标签。
+
+提示：在 XHTML 中，<html> 标签内的 xmlns 属性是必需的。然而，即使当 XHTML 文档中没有这个属性时，w3.org 的验证工具也不会提示错误。这是因为，"xmlns=http://www.w3.org/1999/xhtml" 是一个固定的值，即使你没有把它包含在代码中，这个值也会被添加到 <html> 标签中。
+
+你会在下一章学习更多关于 XHTML 文档类型声明的知识。
+
+与当今的浏览器相兼容。
+
+XHTML 规则概要
+将传统的 HTML 转换为 XHTML 1.0 是快捷且无痛的，只要你遵守一些简单的规则和容易的方针。不管是否使用过 HTML，都不会妨碍你使用 XHTML。
+
+使用恰当的文档类型声明和命名空间。
+使用 meta 元素声明你的内容类型。
+使用小写字母书写所有的元素和属性。
+为所有的属性值加引号。
+为所有的属性分配值。
+关闭所有的标签。
+使用空格和斜线关闭空标签。
+不要在注释中写双下划线。
+确保小于号及和号为 < 和 & -->

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.defineProperty</title>
+</head>
+<body>
+    <!-- Object.defineProperty 定义新属性或修改属性 -->
+     
+   
+    <script>
+        let obj={
+            name:'zhang',
+            age:'23'
+        } 
+        // Object.defineProperty(对象名,属性名,描述);
+        // 第三个参数必须以对象的形式来写 {},该对象里面有如下几种方法
+        // value：设置属性的值，默认为undefined
+        // writable: 值是否可以重写（修改），true/false，默认false只读）
+        // enumerable：目标属性是否可以被枚举（遍历），true/false ，默认false
+        // configurable：目标属性是否可以被删除或是否可以再次修改特性，true/false ，默认false
+
+
+        // 修改属性
+        // Object.defineProperty(obj,'name',{
+        //     value:'zrm',
+        // });
+        // 添加属性
+        Object.defineProperty(obj,'sex',{
+            value:'man',
+            writable:false,
+            enumerable:false,
+            configurable:false
+        });
+        // writable
+        // obj.sex='woman';    //  writable 属性为false 不允许修改
+
+
+        // enumerable
+        // for(let key in obj){
+        //     console.log(key);     //enumerable 为false ，不能遍历
+        // }
+        // Object.keys() 返回的由属性名组成的数组,和 for in相似
+        // let obj1=Object.keys(obj);  
+        // console.log(obj1);
+
+
+        // configurable
+        delete obj.sex;     //不能删除
+        Object.defineProperty(obj,'sex',{
+            writable:true,
+            enumerable:true,              //不能修改特性
+            configurable:true
+        });
+        delete obj.sex;
+        console.log(obj);
+    </script>
+</body>
+</html>

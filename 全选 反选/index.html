@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    
+    <style>
+        /* *{
+            margin: 0%;
+            padding: 0%;
+        } */
+        .artitle li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="qx" value="全选">
+    <input type="button" id="qbx" value="全不选">
+    <input type="button" id="fx"  value="反选">
+    <ul class="artitle">
+        <li><input type="checkbox" >张如明1</li>
+        <li><input type="checkbox" >张如明2</li>
+        <li><input type="checkbox" >张如明3</li>
+        <li><input type="checkbox" >张如明4</li>
+        <li><input type="checkbox" >张如明5</li>
+        <li><input type="checkbox" >张如明6</li>
+        <li><input type="checkbox" >张如明7</li>
+        <li><input type="checkbox" >张如明8</li>
+    </ul>
+</body>
+<script src="./jquery.min.js"></script>
+<script>
+    $('#qx').click(function(){
+       $(':checkbox').attr('checked','checked');
+       $(':checkbox').prop('checked',true);
+    })
+    $('#qbx').click(function(){
+       $(':checkbox').removeAttr('checked');
+       $(':checkbox').removeProp('checked');
+    })
+    $('#fx').click(function(){
+        var obj=$(':checked');
+        $(':checkbox').attr('checked','checked');
+        $(':checkbox').prop('checked',true);
+        obj.removeAttr('checked');
+       obj.removeProp('checked');
+    })
+</script>
+</html>

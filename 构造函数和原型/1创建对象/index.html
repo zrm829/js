@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象的三种方法</title>
+</head>
+<body>
+    <!-- new 执行的过程：
+    1.首先在内存中创建一个空对象
+    2.让this指向这个空对象
+    3.执行构造函数里面的代码，给对象添加属性和方法；
+    4.返回这个新对象（所有构造函数里面没有return） -->
+    <script>
+        // 方法一: new Object():
+        let a=new Object();
+        // console.dir(Object.prototype);
+        // 方法二：利用字面量创建对象，通过字面量创建的对象都具有同一个原型对象
+        let b={};
+        let c={};
+        //方法三：Object.create(对象的原型，可选参数),是一个静态函数，而不是提供个某个对象的调用方法
+        var obj=Object.create({x:1,y:2});     //obj继承了{}对象中的x,y
+        console.log(obj);
+        // 可以通过参数null来创建一个没有原型的新对象，这种创建对象的方式不会继承任何属性,甚至不包括基础的方法,如toString()
+        var obj2=Object.create(null);
+        console.log(obj2);
+        //如果想创建一个普通的空对象，参数需要传入Object.prototype
+        var obj3=Object.create(Object.prototype);
+        console.log(obj3);
+        
+        // 方法四：利用构造函数创建对象
+        function Student(name,sex,ago){
+            this.name=name;
+            this.sex=sex;
+            this.ago=ago;
+            this.sing=function(){
+                console.log(this.name+"会唱歌");
+            }
+        }
+        let zrm=new Student('张如明','男',23);
+        let ldh=new Student('刘德华','男',60);
+        console.log(zrm===ldh);
+        zrm.sing();
+    </script>
+</body>
+</html>

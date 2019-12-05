@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>应用</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        var lis=document.querySelector('ul').querySelectorAll('li');
+        // for(var i=0;i<lis.length;i++){
+        //     // lis[i].onclick=function(){
+        //     //         console.log(i);
+        //     // }
+        //     (function(i){
+        //         lis[i].onclick=function(){
+        //             console.log(i);
+        //         }
+        //     })(i)
+        // }
+        for(var i=0;i<lis.length;i++){
+            (function(i){
+                setTimeout(function(){
+                    console.log(lis[i].innerHTML);
+                },3000);
+            })(i)
+           
+        }
+
+    </script>
+</body>
+</html>

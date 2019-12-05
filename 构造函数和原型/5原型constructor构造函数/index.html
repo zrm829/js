@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>原型中constructor构造函数</title>
+</head>
+<body>
+    <!-- 对象原型和构造函数里面的原型对象里面都有一个属性constructor属性，constructor我们称为构造函数，
+    因为他指向构造函数本身 -->
+    <script>
+          function Student(name,sex,ago){
+                this.name=name;
+                this.sex=sex;
+                this.ago=ago;
+            }
+            // Student.prototype.sing=function(){
+            //     console.log(this.name+"会唱歌");
+            // }
+            Student.prototype={
+                // 如果我们修改了原来的原型对象，给原型对象的赋值是一个对象，则必须手动利用construtor指会原来的构造函数
+                constructor:Student,
+                sing:function(){
+                    console.log(this.name+"会唱歌");
+                },
+                movie:function(){
+                    console.log(this.name+"会演电影");
+                }
+            }
+            let zrm=new Student('张如明','男',23);
+            let ldh=new Student('刘德华','男',60);
+            console.log(zrm.__proto__);
+            console.log(Student.prototype);
+            console.log(zrm.__proto__.constructor);   //返回的都是构造函数本身
+            console.log(Student.prototype.constructor);  
+    </script>
+</body>
+</html>

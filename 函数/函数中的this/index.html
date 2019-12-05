@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>函数中this的指向</title>
+</head>
+<body>
+    <button>点我</button>
+    <script>
+        //1. 普通函数  this指向Window
+        function one(){
+            console.log(this);
+        }
+        one();
+        // 2.对象方法  this指向调用他的对象
+        let obj={
+            two:function(){
+                console.log(this);
+            }
+        }
+        obj.two();
+        //3.构造函数 this指向实例对象
+        function Three(){
+            console.log(this);
+        }
+        new Three();
+        // 4.计时器函数  this指向Window
+        setTimeout(function() {
+            console.log(this);
+        }, 1000);
+        //5.事件函数  this 指向button
+        let btn=document.querySelector('button');
+        btn.onclick=function(){
+            console.log(this);
+        }
+    </script>
+</body>
+</html>

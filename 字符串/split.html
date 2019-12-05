@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>length</title>
+</head>
+<body>
+        <!-- 将字符串进行拆分返回一个新的数组，JavaScript就给我们提供了一个非常方便的函数： -->
+        <script>
+            var mystr="qingchenghuwoguoxiansheng,woaishenghuo,woaiziji";
+            var arr1=mystr.split(",");    //["qingchenghuwoguoxiansheng","woaishenghuo","woaiziji"];
+            var arr2=mystr.split("");        //["q","i","n","g","c","h","e","n","g","h","u","w","o","g","u","o","x","i","a","n","s","h","e","n","g",",","w","o","a","i","s","h","e","n","g","h","u","o",",","w","o","a","i","z","i","j","i"];
+            
+            // split()的第二个参数，表示返回的字符串数组的最大长度
+            var mystr="qingchenghuwoguoxiansheng,woaishenghuo,woaiziji";
+            var arr1=mystr.split(",",2); //["qingchenghuwoguoxiansheng","woaishenghuo"];
+            var arr2=mystr.split("",8); //["q","i","n","g","c","h","e","n"];
+        </script>
+</body>
+</html>

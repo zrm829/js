@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>对象原型 __proto__</title>
+</head>
+<body>
+    <!-- 对象都会有一个属性 __proto__ 指向构造函数的 prototype原型对象，之所以我们对象能使用原型对象上
+    的属性和方法，就是因为对象上有 __proto__ 原型的存在 -->
+        <script>
+                function Student(name,sex,ago){
+                    this.name=name;
+                    this.sex=sex;
+                    this.ago=ago;
+                }
+                Student.prototype.sing=function(){
+                    console.log(this.name+"会唱歌");
+                }
+                let zrm=new Student('张如明','男',23);
+                let ldh=new Student('刘德华','男',60);
+                console.log(Student.prototype);
+                console.log(Student.prototype===zrm.__proto__);
+                // 方法查找规则；首先查看实例对象是否有sing方法，如果有就执行这个对象上的sing，
+                // 如果没有sing这个方法，因为有__proto__ 的存在，就去构造函数的原型对象上去查找该方法
+        </script>
+</body>
+</html>

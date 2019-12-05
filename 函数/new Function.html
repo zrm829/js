@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>new Function 创建函数</title>
+</head>
+<body>
+    <script>
+        // Function 里面的参数必须以字符串的形式，所有的函数都是Function函数的实例
+        let fn=new Function('x','y','console.log(x+y)');  
+        fn(1,2);
+        // 函数也是一个对象。有__proto__ 原型
+        console.dir(fn);
+    </script>
+</body>
+</html>

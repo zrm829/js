@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>利用父构造函数继承属性</title>
+</head>
+<body>
+    <!-- 在ES6我们通过构造函数+原型对象模拟实现继承，成为组合继承 
+    利用构造函数继承父类型的属性，利用原型对象继承父类型的方法··
+    -->
+    <script>
+            function Father(name,age){
+                // this指向父构造函数的实例对象
+                this.name=name;
+                this.age=age;
+            }
+            function Son(name,age,sex){
+                // this指向子构造函数的实例对象
+                Father.call(this,'zsr',54);
+                this.sex=sex;
+            }
+            let son=new Son('zrm',23,'man');
+            console.log(son);
+            let father=new Father('zsr',54)
+            console.log(father);
+    </script>
+</body>
+</html>

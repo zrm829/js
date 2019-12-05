@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>原型对象继承方法</title>
+</head>
+<body>
+        <script>
+                function Father(name,age){
+                    // this指向父构造函数的实例对象
+                    this.name=name;
+                    this.age=age;
+                }
+                Father.prototype.money=function(){
+                    console.log('我会挣钱');
+                }
+                function Son(name,age,sex){
+                    // this指向子构造函数的实例对象
+                    Father.call(this,'zsr',54);
+                    this.sex=sex;
+                }
+                //1. 不合理指针指向同一块内存，修改子也会影响父
+                // Son.prototype=Father.prototype;
+                //2.曲线救国:合理,把Son的原型对像指向一个Father的实例对象，实例对象中的 __proto__ 方法指向Father中的prototype，进而可以访问其方法
+                Son.prototype=new Father();
+                Son.prototype.constructor=Son;
+                // 如果通过对象对象修该了prototype属性，别忘了使用constructor指会原来的构造函数
+                Son.prototype.exam=function(){
+                    console.log('我要考试');
+                }
+                let son=new Son('zrm',23,'man');
+                console.log(son);
+                let father=new Father('zsr',54)
+                console.log(father);
+        </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>apply</title>
+</head>
+<body>
+    <!-- apply(this,arg[]) -->
+    <!-- apply能调用函数也能，改变this指向 -->
+    <!-- 传的值必须包含在数组(伪数组)里面 -->
+    <script>
+        var obj={
+            name:'zrm'
+        }
+        function start(arry){
+            console.log(this.name);
+            console.log(arguments);
+        }
+        start.apply(obj,[1,2,3]);
+        console.log(obj);
+        // apply主要应用,因为数组中没有求最大值最小值方法
+        // Math.max()
+        // console.log(Array.prototype);
+        let a=[1,2,3,5,8,5];
+        let m=Math.max.apply(Math,a);
+        let n=Math.min.apply(Math,a);
+        console.log(m,n);
+    </script>
+</body>
+</html>

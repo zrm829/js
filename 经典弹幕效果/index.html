@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+         #OnPrograss{
+            width: 500px;
+            height: 25px;
+            background: wheat;
+            margin: 100px auto;
+            border: 1px solid #ffffff;
+            border-radius: 6px;
+            position: relative;
+        }
+         #OnPrograss #InPrograss{
+            width: 0px;
+            height: 25px;
+            background:black;
+        }
+    </style>
+</head>
+<body>
+    <div id="OnPrograss">
+        <div id="InPrograss"></div>
+    </div>
+    <div class="wrapper">
+        <div class="screen">
+            <div class="main">
+                <video src="./image/3.mp4" controls id="video1" poster="./image/2.jpg"></video>
+            </div>
+            <div class="barrage clearfix">
+                <input type="text" placeholder="请输入弹幕">
+                <div class="btn">发送</div>
+            </div>
+            <input type="button" value="切换" style="margin-left: 0px;width: 50px;height: 25px;" id="change" >
+            <input type="button" value="静音" style="margin-left: 0px;width: 50px;height: 25px;" id="multi">
+        </div>
+
+    </div>
+    <script src="./js/index.js"></script>
+    <script>
+        var ispaly=true;
+        var Video=document.getElementById('video1');
+        var change=document.getElementById('change');
+        var Multi=document.getElementById('multi');
+        var OnPrograss=document.getElementById("OnPrograss");
+        var InPrograss=document.getElementById('InPrograss');
+        console.log(InPrograss);
+        window.onkeydown=function(event){
+            // alert(event.keyCode);
+            if(event.keyCode==32){
+                if(Video.paused){
+                      Video.play();
+                    //   ispaly=false;
+                } 
+                else {
+                    Video.pause();
+                    // ispaly=true;
+                }
+            }
+            if(event.keyCode==37){
+                var CurrentTime=Video.currentTime;
+                if(CurrentTime-2>0)
+                   Video.currentTime=CurrentTime-2;
+                else
+                   Video.currentTime=0;
+            }
+            if(event.keyCode==39){
+                var CurrentTime=Video.currentTime;
+                if(CurrentTime+2<Video.duration)
+                   Video.currentTime=CurrentTime+2;
+                else
+                   Video.currentTime=Video.duration;
+            }
+        }
+        change.onclick=function(){
+            Video.src='./image/4.mp4';
+            Video.play();
+        }
+        Multi.onclick=function(){
+            if(Video.muted){
+                Video.muted=false;
+            }
+            else
+              Video.muted=true;
+        }
+        // 因为 offsetWidth 会把元素的 width、padding 和 border 都加在一起。
+        // console.log(OnPrograss.offsetWidth);
+        // 因为 clientWidth 会把元素的 width 和 padding 都算上。
+        // 因为元素左右都有 padding 值，所以是 20 + 100 + 20 = 140。
+        // console.log(OnPrograss.clientWidth);
+        Video.onplay=function(){
+             setInterval(function(){
+                var bili=(Video.currentTime/Video.duration)*500;
+                InPrograss.style.width=bili+'px';
+             },1000)
+        }
+        OnPrograss.onclick=function(){
+            var ev=window.event||e;
+            // 获取鼠标的位置
+            var mx=ev.layerX||offsetX;
+            var ctime=(mx/500)*Video.duration;
+            Video.currentTime=ctime;
+            InPrograss.style.width=mx+'px';
+        }
+       
+    </script>
+</body>
+</html>

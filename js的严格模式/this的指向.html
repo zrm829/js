@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>严格模式下this的指向</title>
+</head>
+<body>
+    <button id="btn">点我</button>
+    <script>
+        'use strict'
+        let btn=document.querySelector('#btn');
+        function fn(){
+            console.log(this);
+        }
+        fn();   //输出undefined
+        // 计时器里面的this还是指向全局对象
+        setTimeout(function(){
+            console.log(this);
+        },1000)
+        //事件对象里面的this,指向调用的事件对象 button
+        btn.onclick=function(){
+            console.log(this);
+        }
+        //构造函数里面this的指向创建对象的实例
+        function Student(){
+            this.name='zrm';
+            this.age=12;
+            console.log(this);
+        }
+        let ldh=new Student();
+        // 使用构造函数时，如果忘了加new，this不再指向全局对象，而是报错。
+        Student();
+    </script>
+</body>
+</html>

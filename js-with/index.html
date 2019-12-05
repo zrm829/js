@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>with</title>
+</head>
+<body>
+        <!-- with关键字可以将一个没有或者有多个属性的对象处理为一个完全隔离的词法作用域，
+        对象的属性也会被处理为定义在这个词法作用域中的词法标识符。 -->
+
+        <!-- 首先，给出个人的理解：with就是为了封装某个对象，减少某个对象的调用 -->
+        <script>
+            // var obj = {a:1};
+            // console.log(obj.a);//1
+            // with(obj){
+            //     a=123;
+            // }
+            // console.log(obj.a);//123
+
+            // 当对象中没有的属性在with创建的作用域中被赋值时，并不会给对象添加属性。
+            // 但是，被赋值的标识符会泄漏到全局作用域中。
+            // var obj = {b:2};
+            // with(obj){
+            //     a = 1;
+            // }
+            // console.log(obj.a);//undefined
+            // console.log(a);
+
+            // 下面两段代码说明，在with作用域中使用var关键字时，如果标识符是对象的属性，
+            // 则和不使用var关键字的效果一样，如果不是，那么标识符会泄漏到上一级作用域
+            // var obj = {a:1};
+            // console.log(obj.a);//1
+            // with(obj){
+            //     var a=123;
+            //     var b=4321;
+            // }
+            // console.log(obj.a);//123
+            // console.log(obj.b);//undefined
+            // console.log(b);//4321
+
+            // function foo(obj){
+            //     with(obj){
+            //         var b=4321;
+            //     }
+            //     console.log(b);//4321
+            // }
+            // obj = {};
+            // foo(obj);
+            // console.log(b);//会报错 ReferenceError: b is not defined
+
+        </script>
+</body>
+</html>

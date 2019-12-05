@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>日期对象</title>
+</head>
+<body>
+    <h2 id="hd">现在时间
+        <span></span>年
+        <span></span>月
+        <span></span>日
+        <span></span>时
+        <span></span>分
+        <span></span>秒
+   </h2>
+</body>
+<script>
+    var hd=document.getElementById('hd').getElementsByTagName('span');
+   
+    function change(){
+         var time=new Date();
+         hd[0].innerHTML=time.getFullYear();
+         hd[1].innerHTML=time.getMonth();
+         hd[2].innerHTML=time.getDay();
+         hd[3].innerHTML=time.getHours();
+         hd[4].innerHTML=time.getMinutes();
+         hd[5].innerHTML=time.getSeconds();
+    }
+        change();
+        var time=new Date(); 
+        // var j;
+        
+        //  j=time.getSeconds();
+         var timer=setInterval(function(){ 
+            hd[0].innerHTML=time.getFullYear();
+            hd[1].innerHTML=time.getMonth();
+            hd[2].innerHTML=time.getDay();
+            hd[3].innerHTML=time.getHours();
+            hd[4].innerHTML=time.getMinutes();
+            hd[5].innerHTML=time.getSeconds();
+            
+         },1000)
+</script>
+</html>

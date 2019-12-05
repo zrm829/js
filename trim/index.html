@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>trim</title>
+</head>
+<body>
+    <!-- trim() 消除元素左右两边的空格 -->
+    <input type="text">
+    <button id='btn'>点击</button>
+    <script>
+        let n=document.querySelector('input');
+        let btn=document.querySelector("#btn");
+        btn.onclick=function(){
+            console.log(n.value);
+            console.log(n.value.trim());
+        }
+        
+    </script>
+</body>
+</html>

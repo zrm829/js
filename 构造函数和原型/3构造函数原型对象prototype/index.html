@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>原型对象prototype</title>
+</head>
+<body>
+    <!-- 
+        构造函数每次创建一个实例化对象都会分配内存空间，所以会存在浪费内存问题
+        构造函数通过原型分配的函数是所有对象共享的，所有解决了内存浪费的问题
+     -->
+<!-- 
+     注意：每一和构造函数中都有一个prototype属性，指向一个对象，
+     通俗的来说这个prototype就是一个对象，这个对象中的所有属性和方法，都会被构造函数所拥有 
+     一般情况下我们的公共属性定义在构造函数里面，公共的方法放到原型对象上
+    -->
+    <script>
+            function Student(name,sex,ago){
+                this.name=name;
+                this.sex=sex;
+                this.ago=ago;
+            }
+            Student.prototype.sing=function(){
+                console.log(this.name+"会唱歌");
+            }
+            let zrm=new Student('张如明','男',23);
+            let ldh=new Student('刘德华','男',60);
+           
+            // console.dir()可以显示一个对象所有的属性和方法,我们可以看出构造函数中有 prototype属性。
+            console.dir(Student);
+            zrm.sing();
+            ldh.sing();
+            console.log(zrm.sing===ldh.sing);   //true
+    </script>
+</body>
+</html>

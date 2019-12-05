@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>forEach</title>
+</head>
+<body>
+    <!-- array.forEach(function(value,index,arr)); -->
+    <!-- forEach中不能使用 break，continue return等来终止循环  ,没有返回值-->
+    <script>
+        let a=[1,5,6,8,2,8,11,555];
+        a.forEach((value,index,arr) => {
+            if(value==8){  
+                console.log(value,index,arr);
+                return true;      //不会终止迭代
+            }
+            console.log(11);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>splice</title>
+</head>
+<body>
+    <!-- 　功能：向数组中添加，或从数组删除，或替换数组中的元素，然后返回被删除/替换的元素。
+　　　 参数：splice(start,num,data1,data2,...); 所有参数全部可选。　 -->
+    <script>
+        var arr = ["Tom","Jack","Lucy","Lily","May"];    
+        console.log(arr.splice(2,0,"a","b"));  //[]
+        console.log(arr);    //["Tom", "Jack", "a", "b", "Lucy", "Lily", "May"]---原数组改变
+    </script>
+</body>
+</html>

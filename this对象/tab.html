@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>tab切换效果</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
+        li{
+            list-style: none;
+            float: left;
+            margin-left: 20px;
+        }
+        p{
+            display: none;
+        }
+    </style>
+</head>
+<body id="h">
+    <ul id="hd">
+        <li>布局</li>
+        <li>公告</li>
+        <li>联系</li>
+        <li>华为</li>
+        <li>OPPO</li>
+    </ul><br>
+    <p class="con" style="display:block;">1</p>
+    <p class="con">2</p>
+    <p class="con">3</p>
+    <p class="con">4</p>
+    <p class="con">5</p>
+</body>
+<script>
+    var h=document.getElementById('h');
+    var hd=document.getElementById('hd').getElementsByTagName('li');
+    var con=h.getElementsByClassName('con');
+    for(var i=0;i<hd.length;i++){
+        hd[i].biaoqian=i;
+        hd[i].onclick=function(){
+            var c=this.biaoqian;
+            for(var j=0;j<con.length;j++){
+                con[j].style.display='none';
+            }
+            con[c].style.display='block';
+            // var newp=document.createElement('p');
+            // newp.innerHTML=this.biaoqian;
+            // h.appendChild(newp);
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>some</title>
+</head>
+<body>
+    <!-- some是用来查找数组中是否有满足条件的数 -->
+    <!-- 返回值是Boolean值 -->
+    <!-- 如果查找到元素，循环就会中断，不在进行循环 -->
+    <script>
+        let a=[1,2,5,8,2,6,8,4,7];  
+        let b=a.some(function(value,index,arr){
+            // return value>=5;
+            if(value==8){
+                return true;
+            }
+        })
+        console.log(11);
+    </script>
+</body>
+</html>

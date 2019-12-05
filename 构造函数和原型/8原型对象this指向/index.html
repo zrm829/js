@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>原型对象this指向</title>
+</head>
+<body>
+    <!-- 1.在构造函数中this指向的是对象实例
+        2.原型对象里面的this也是指向对象实例
+    2.一般来说this指向的是调用者 -->
+    <script>
+         function Student(name,sex,ago){
+            this.name=name;
+                this.sex=sex;
+                this.ago=ago;
+        }
+        let that;
+        Student.prototype.sing=function(){
+            that=this
+            console.log(this.name+"会唱歌");
+        }
+        let zrm=new Student('张如明','男',23);
+        zrm.sing();
+        console.log(that===zrm);
+    </script>
+</body>
+</html>

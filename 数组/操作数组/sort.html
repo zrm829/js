@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>sort</title>
+</head>
+<body>
+        <!-- sort();
+　　　　功能：对数组内的数据进行排序(默认为升序)，并且返回排过序的新数组，会改变原来的数组
+　　　  注意：
+　　　　　　8.1：这里的排序是针对字符的排序，先使用数组的toString()方法转为字符串，再逐位比较，3是大于12的，因为首位3>1，不要与Number型的数据排序混淆
+　　　　　　8.2：str2数组中增加了三个字符，可以看到，比较的时候，zoom是最大的，因为首位的英文字母通过ASCII码可以转为相应的数值，再根据数值比较　　　　 -->
+    <script>
+        var arr1=[4,5,8,14,5,69,0];
+        var arr2=['a',1,5,0,,66,9500,'zroom','hello'];
+        console.log(arr1.sort());
+        console.log(arr1);
+        console.log(arr2.sort());
+        console.log(arr2);
+
+
+//         排序问题
+// 　　　　　　参数：sort(callback) 如果需要按照数值排序，需要传参。sort(callback)，callback为回调函数，该函数应该具有两个参数，比较这两个参数，然后返回一个用于说明这两个值的相对顺序的数字（a-b）。其返回值如下：
+// 　　　　　　　　若 a 小于 b，返回一个小于 0 的值。
+// 　　　　　　　　若 a 等于 b，则返回 0。
+// 　　　　　　　　若 a 大于 b，则返回一个大于 0 的值。
+        var str3 = [92,2,43,5,2,5];     
+        console.log(str3.sort(fn));　　　　　　　　　　　　　　　　　//[2, 2, 5, 5, 43, 92]
+        console.log(str3);　　　　　　　　　　　　　　　　　　　　　　//[2, 2, 5, 5, 43, 92]
+        function fn (a,b){
+        　　　　return a-b;
+        }
+    </script>
+</body>
+</html>

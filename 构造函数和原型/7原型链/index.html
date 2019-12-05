@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链</title>
+</head>
+<body>
+    <script>
+            function Student(name,sex,ago){
+                this.name=name;
+                this.sex=sex;
+                this.ago=ago;
+            }
+            Student.prototype.sing=function(){
+                console.log(this.name+"会唱歌");
+            }
+            let zrm=new Student('张如明','男',23);
+            let ldh=new Student('刘德华','男',60);
+            //1.只要是对象，就有__proto__属性
+            console.log(Student.prototype);
+            console.log(Student.prototype.__proto__==Object.prototype);
+            //2.我们Student原型对象中的__proto__原型,指向的是Object.prototyp
+            console.log(Object.prototype.__proto__);
+            //3.我们Object.prototype原型对象中的__proto__原型,指向的是null
+    </script>
+</body>
+</html>
