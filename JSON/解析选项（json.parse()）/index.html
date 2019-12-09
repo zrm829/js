@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解析选项（JSON.parse()）</title>
+</head>
+
+<body>
+    <!-- JSON.parse()方法也可以接收另一个参数，该参数是一个函数，将在每个键值对儿上调用。为了
+    区别 JSON.stringify()接收的替换（过滤）函数（replacer），这个函数被称为还原函数（reviver），
+    但实际上这两个函数的签名是相同的——它们都接收两个参数，一个键和一个值，而且都需要返回一
+    个值。
+    如果还原函数返回 undefined，则表示要从结果中删除相应的键；如果返回其他值，则将该值插
+    入到结果中。在将日期字符串转换为 Date 对象时经常要用到还原函数。 -->
+    <script>
+        var book = {
+            "title": "Professional JavaScript",
+            "authors": [
+                "Nicholas C. Zakas"
+            ],
+            edition: 3,
+            year: 2011,
+            releaseDate: new Date(2011, 11, 1)
+        };
+        var jsonText = JSON.stringify(book,null,4);
+        var bookCopy = JSON.parse(jsonText, function (key, value) {
+            if (key == "releaseDate") {
+                return new Date(value);
+            } else {
+                return value;
+            } 
+        });
+        console.log(jsonText);
+        console.log(bookCopy);
+        console.log(bookCopy.releaseDate.getFullYear());
+    </script>
+</body>
+
+</html>

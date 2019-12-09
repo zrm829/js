@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON对象</title>
+</head>
+
+<body>
+    <!-- JSON 对象有两个方法：stringify()和 parse()。在最简单的情况下，这两个方法分别用于把
+    JavaScript 对象序列化为 JSON 字符串和把 JSON 字符串解析为原生 JavaScript 值。 -->
+    <script>
+        var book = {
+            title: "Professional JavaScript",
+            authors: [
+                "Nicholas C. Zakas"
+            ],
+            edition: 3,
+            year: 2011
+        };
+        // JSON.stringify()把一个 JavaScript 对象序列化为一个 JSON 字符串
+        var jsonText = JSON.stringify(book);
+        // 将 JSON 字符串直接传递给 JSON.parse()就可以得到相应的 JavaScript 值。
+        var jsonParse=JSON.parse(jsonText)
+        console.log(book);
+        console.log(jsonText);
+        console.log(jsonParse);
+    </script>
+</body>
+
+</html>

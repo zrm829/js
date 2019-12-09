@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>序列化</title>
+</head>
+
+<body>
+    <!-- 实际上，JSON.stringify()除了要序列化的 JavaScript 对象外，还可以接收另外两个参数，这两
+    个参数用于指定以不同的方式序列化 JavaScript 对象。第一个参数是个过滤器，可以是一个数组，也可
+    以是一个函数；第二个参数是一个选项，表示是否在 JSON 字符串中保留缩进。单独或组合使用这两个
+    参数，可以更全面深入地控制 JSON 的序列化 -->
+    <script>
+        var book = {
+            "title": "Professional JavaScript",
+            "authors": [
+                "Nicholas C. Zakas",
+                "ZhangRuMing"
+            ],
+            edition: 3,
+            year: 2011
+        };
+        console.log(book);
+
+
+        //第二个参数
+        // 过滤参数是一个数组,数组里面的值只能是字符串格式
+        var jsonText1 = JSON.stringify(book, ["title", "edition"]);
+        console.log(jsonText1); //{"title":"Professional JavaScript","edition":3} 
+
+        // 过滤参数是一个函数，传入的函数接收两个参数，属性（键）名和属性值,属性名只能是字符串
+        var jsonText2 = JSON.stringify(book, function (key, value) {
+            switch (key) {
+                case "authors":
+                    return value.join("-")
+                case "year":
+                    return 5000;
+                case "edition":    //如果键为"edition"，通过返回 undefined 删除该属性。
+                    return undefined;
+                default:
+                    return value;
+            }
+        }); 
+        console.log(jsonText2);  //{"title":"Professional JavaScript","authors":"Nicholas C. Zakas","year":5000}
+
+
+        // 第三个参数 控制字符串的缩进
+        // JSON.stringify()方法的第三个参数用于控制结果中的缩进和空白符。如果这个参数是一个数
+        // 值，那它表示的是每个级别缩进的空格数。同时也会在字符串中插入换行符
+        // 缩进字符串最长不能超过 10 个字符长。如果字符串长度超过了 10 个，结果中将只出现前 10 个字符
+        var jsonText3 = JSON.stringify(book, null, 4); 
+        console.log(jsonText3);
+
+        // 如果缩进参数是一个字符串而非数值，则这个字符串将在 JSON 字符串中被用作缩进字符（不再使
+        // 用空格）。在使用字符串的情况下，可以将缩进字符设置为制表符，或者两个短划线之类的任意字符。
+        var jsonText4 = JSON.stringify(book, null, '---'); 
+        console.log(jsonText4);
+    </script>
+</body>
+
+</html>
