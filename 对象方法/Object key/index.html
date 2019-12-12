@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+</head>
+<body>
+    <!-- Object.keys()方法可以枚举对象本身的属性和通过Object.defineProperty()添加的可枚举属性 -->
+    <!-- Object.values()-----以数组的形式返回所有可遍历属性的键值，原型上的属性不能遍历 -->
+    <!-- Object.entries()-----以数组的形式返回所有可遍历属性的键值对，原型上的属性不能遍历 -->
+    <script>
+        function enumer() {
+            this.a = '我是对象本身就有的属性';
+        }
+        enumer.prototype.b = '我是通过原型对象挂载的属性';
+        let fn = new enumer();
+        Object.defineProperty(fn, 'c', {
+            value: '我是通过Object.defineProperty方法添加的可枚举属性',
+            enumerable: true
+        });
+        console.log(Object.keys(fn));
+        /*输出*/
+        // ["a", "c"]
+        console.log(Object.values(fn));
+        console.log(Object.entries(fn));
+    </script>
+</body>
+</html>

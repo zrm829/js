@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getPrototypeOf()</title>
+</head>
+
+<body>
+    <script>
+        function Rectangle() {
+            // ...
+        }
+
+        const rec = new Rectangle();
+
+        Object.getPrototypeOf(rec) === Rectangle.prototype
+        // true
+
+        Object.setPrototypeOf(rec, Object.prototype);
+        Object.getPrototypeOf(rec) === Rectangle.prototype;
+        // false
+    </script>
+</body>
+
+</html>

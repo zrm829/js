@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setPrototypeOf()</title>
+</head>
+
+<body>
+    Object.setPrototypeOf方法的作用与__proto__相同，用来设置一个对象的prototype对象，返回参数对象本身。它是 ES6 正式推荐的设置原型对象的方法。
+    Object.setPrototypeOf(object, prototype)
+    <script>
+        let proto = {};
+        let obj = { x: 10 };
+        Object.setPrototypeOf(obj, proto);
+
+        proto.y = 20;
+        proto.z = 40;
+
+        obj.x // 10
+        obj.y // 20
+        obj.z // 40
+        // 上面代码将proto对象设为obj对象的原型，所以从obj对象可以读取proto对象的属性。
+    </script>
+</body>
+
+</html>

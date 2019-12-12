@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getOwnPropertyDescriptor</title>
+</head>
+
+<body>
+    在 ES5 之前，JavaScript 语言本身并没有提供可以直接检测属性特性的方法，比如判断属
+    性是否是只读。但是从 ES5 开始，所有的属性都具备了属性描述
+    Object.getOwnPropertyDescriptor( myObject, "a" );  返回一个对象
+    // {
+    // value: 2,
+    // writable: true,
+    // enumerable: true,
+    // configurable: true
+    // }
+    <script>
+        var obj = {
+            a: 1,
+            b: 2,
+        }
+        // 添加属性
+        Object.defineProperty(obj, 'c', {
+            value: 3,
+            writable: false,
+            enumerable: false,
+            configurable: false,
+        });
+        obj.d = 4;
+        console.log(obj);
+        console.log(obj.__proto_ === Object.property);
+        // 枚举（遍历）对象
+        var list = Object.keys(obj);
+        console.log(list);
+
+        // 获取对象属性的描述
+        var decript=Object.getOwnPropertyDescriptor(obj,'c')
+        console.log(decript)
+    </script>
+</body>
+
+</html>

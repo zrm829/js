@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象扩展</title>
+</head>
+
+<body>
+    如果 你 想 禁 止 一 个 对 象 添 加 新 属 性 并 且 保 留 已 有 属 性， 可 以 使 用 Object.prevent
+    Extensions(..)
+    判断字符串是否可以被扩展  Object.isExtensible()
+    <script>
+        var myObject = {
+            a: 2
+        };
+        Object.preventExtensions(myObject);
+        myObject.b = 3;
+        myObject.b; // undefined
+
+       console.log('对象是否可以扩展：'+Object.isExtensible(myObject)) ;
+    </script>
+</body>
+
+</html>

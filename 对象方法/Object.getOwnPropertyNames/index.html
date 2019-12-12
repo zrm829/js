@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.getOwnPropertyNames()-</title>
+</head>
+
+<body>
+    <!-- Object.getOwnPropertyNames()-----获取对象的所有属性，数组形式返回 ，但不包括原型对象挂载的属性-->
+    <!-- Object.keys()方法可以枚举对象本身的属性和通过Object.defineProperty()添加的可枚举属性 -->
+    <script>
+        function enumer() {
+            this.a = '我是对象本身就有的属性';
+        }
+        enumer.prototype.b = '我是通过原型对象挂载的属性';
+        let fn = new enumer();
+        Object.defineProperty(fn, 'c', {
+            value: '我是通过Object.defineProperty方法添加的可枚举属性',
+            enumerable: false
+        });
+        console.log(Object.keys(fn));
+        console.log(Object.getOwnPropertyNames(fn));
+    </script>
+</body>
+
+</html>

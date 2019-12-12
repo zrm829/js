@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hasOwnProperty()</title>
+</head>
+
+<body>
+    in 操作符会检查属性是否在对象及其 [[Prototype]] 原型链中。相比之下，
+    hasOwnProperty(..) 只会检查属性是否在 myObject 对象中，不会检查 [[Prototype]] 链。
+    <script>
+        var myObject = {
+            a: 2
+        };
+        myObject.__proto__.b=1;
+        // console.log(myObject);
+        // console.log(new Object());
+       console.log(("a" in myObject)) ; // true
+       console.log(("b" in myObject));  // true
+    
+       console.log(myObject.hasOwnProperty("a")) ; // true
+       console.log(myObject.hasOwnProperty("b")); // false
+        
+    </script>
+</body>
+
+</html>
